@@ -1,0 +1,12 @@
+<div class="jumbotron h-100 text-center d-flex flex-column align-items-center justify-content-center">
+  <h1 class="display-4">Welcome to Triviafy</h1>
+  <p class="lead">Take quizzess, share your score with your friends!</p>
+  <hr class="my-4">
+  <p>Select a category or just jump into the quiz with a random category</p>
+  <p class="lead">
+    <dx-select-box [dataSource]="categories" [showClearButton]="true" [(value)]="categoryId" [displayExpr]="'name'"
+      [valueExpr]="'id'">
+    </dx-select-box>
+    <dx-button type="default" icon="check" text="Start" (click)="startQuiz()"></dx-button>
+  </p>
+</div>

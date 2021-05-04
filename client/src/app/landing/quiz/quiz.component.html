@@ -1,0 +1,88 @@
+<div class="content">
+  <div class="content-box">
+    <div class="content-box-header">
+      <h3>Quiz</h3>
+    </div>
+    <div *ngIf="quizes" class="content-box-body">
+      <p>1. {{quizes[0]?.name}}</p>
+      <div>
+        <dx-radio-group [layout]="'horizontal'" [dataSource]="quizes[0]?.answers" [(value)]="quizRequest.answer1"
+          [valueExpr]="'answer_id'" [displayExpr]="'name'">
+        </dx-radio-group>
+      </div>
+      <p>2. {{quizes[1]?.name}}</p>
+      <div>
+        <dx-radio-group [layout]="'horizontal'" [dataSource]="quizes[1]?.answers" [(value)]="quizRequest.answer2"
+          [valueExpr]="'answer_id'" [displayExpr]="'name'">
+        </dx-radio-group>
+      </div>
+      <p>3. {{quizes[2]?.name}}</p>
+      <div>
+        <dx-radio-group [layout]="'horizontal'" [dataSource]="quizes[2]?.answers" [(value)]="quizRequest.answer3"
+          [valueExpr]="'answer_id'" [displayExpr]="'name'">
+        </dx-radio-group>
+      </div>
+      <p>4. {{quizes[3]?.name}}</p>
+      <div>
+        <dx-radio-group [layout]="'horizontal'" [dataSource]="quizes[3]?.answers" [(value)]="quizRequest.answer4"
+          [valueExpr]="'answer_id'" [displayExpr]="'name'">
+        </dx-radio-group>
+      </div>
+      <p>5. {{quizes[4]?.name}}</p>
+      <div>
+        <dx-radio-group [layout]="'horizontal'" [dataSource]="quizes[4].answers" [(value)]="quizRequest.answer5"
+          [valueExpr]="'answer_id'" [displayExpr]="'name'">
+        </dx-radio-group>
+      </div>
+      <p>6. {{quizes[5]?.name}}</p>
+      <div>
+        <dx-radio-group [layout]="'horizontal'" [dataSource]="quizes[5].answers" [(value)]="quizRequest.answer6"
+          [valueExpr]="'answer_id'" [displayExpr]="'name'">
+        </dx-radio-group>
+      </div>
+      <p>7. {{quizes[6]?.name}}</p>
+      <div>
+        <dx-radio-group [layout]="'horizontal'" [dataSource]="quizes[6].answers" [(value)]="quizRequest.answer7"
+          [valueExpr]="'answer_id'" [displayExpr]="'name'">
+        </dx-radio-group>
+      </div>
+      <p>8. {{quizes[7]?.name}}</p>
+      <div>
+        <dx-radio-group [layout]="'horizontal'" [dataSource]="quizes[7].answers" [(value)]="quizRequest.answer8"
+          [valueExpr]="'answer_id'" [displayExpr]="'name'">
+        </dx-radio-group>
+      </div>
+      <p>9. {{quizes[8]?.name}}</p>
+      <div>
+        <dx-radio-group [layout]="'horizontal'" [dataSource]="quizes[8].answers" [(value)]="quizRequest.answer9"
+          [valueExpr]="'answer_id'" [displayExpr]="'name'">
+        </dx-radio-group>
+      </div>
+      <p>10. {{quizes[9]?.name}}</p>
+      <div>
+        <dx-radio-group [layout]="'horizontal'" [dataSource]="quizes[9].answers" [(value)]="quizRequest.answer10"
+          [valueExpr]="'answer_id'" [displayExpr]="'name'">
+        </dx-radio-group>
+      </div>
+    </div>
+    <div class="content-box-footer">
+      <dx-button text="Finish" (click)="finishQuiz()" icon="check" [type]="'success'"></dx-button>
+    </div>
+  </div>
+</div>
+<div>
+
+</div>
+
+<dx-popup class="popup" (onHidden)="clearPopup()" [width]="'700'" [height]="'auto'" [showTitle]="true"
+  [dragEnabled]="false" [closeOnOutsideClick]="false" [(visible)]="scorePopup">
+  <div *dxTemplate="let data of 'content'">
+    <dx-scroll-view [scrollByContent]="false" [scrollByThumb]="false" [showScrollbar]="'onScroll'"
+      [bounceEnabled]="false">
+      <dx-validation-group class="row" #modelValidation>
+        <h1 class="bg-primary">Youre score is: <span class="bg-danger">{{ score }}</span></h1>
+        <p class="mt-4">Share your score with this link: {{shareLink}}</p>
+      </dx-validation-group>
+    </dx-scroll-view>
+  </div>
+</dx-popup>
